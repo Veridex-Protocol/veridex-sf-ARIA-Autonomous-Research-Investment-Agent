@@ -113,7 +113,7 @@ export function AnimatedHero() {
                     {/* Badge */}
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 glass backdrop-blur-md mb-4 animate-float">
                         <span className="w-2 h-2 rounded-full bg-[#00f0ff] shadow-[0_0_10px_#00f0ff]" />
-                        <span className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">x402 Protocol Live</span>
+                        <span className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Powered by SKALE & x402</span>
                     </div>
 
                     {/* Headline */}
@@ -131,28 +131,32 @@ export function AnimatedHero() {
 
                     {/* Subheadline */}
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                        Infrastructure for the autonomous age. Native <span className="text-white font-mono bg-white/10 px-1 rounded">HTTP 402</span> payments, identity validation, and reputation scoring for AI agents on Monad.
+                        Infrastructure for the autonomous age. Native <span className="text-white font-mono bg-white/10 px-1 rounded">HTTP 402</span> payments, BITE encryption, and zero-gas settlement on SKALE.
                     </p>
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-                        <motion.button
+                        <motion.a
+                            href="/setup"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-[#00f0ff] text-black font-bold rounded-full shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:shadow-[0_0_50px_rgba(0,240,255,0.5)] transition-all flex items-center gap-2 group"
+                            className="px-8 py-4 bg-[#00f0ff] text-black font-bold rounded-full shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:shadow-[0_0_50px_rgba(0,240,255,0.5)] transition-all flex items-center gap-2 group no-underline"
                         >
                             Deploy Agent
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </motion.button>
+                        </motion.a>
 
-                        <motion.button
+                        <motion.a
+                            href="https://veridex.network"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 glass text-white font-medium rounded-full hover:bg-white/10 transition-all flex items-center gap-2 border border-white/10"
+                            className="px-8 py-4 glass text-white font-medium rounded-full hover:bg-white/10 transition-all flex items-center gap-2 border border-white/10 no-underline"
                         >
                             <Cpu className="w-4 h-4" />
                             View Protocol
-                        </motion.button>
+                        </motion.a>
                     </div>
                 </motion.div>
             </div>

@@ -348,7 +348,7 @@ The `@veridex/agentic-payments` SDK provides:
 - **Server Middleware**: `veridexPaywall()` protects endpoints with all 4 protocols in 2 lines
 - **Protocol Discovery**: `.well-known` routes for UCP manifest, ACP checkout, AP2 mandate
 - **Session Keys**: Budget-constrained, revocable spending keys derived from passkeys
-- **Multi-Chain**: Base, Ethereum, Arbitrum, Optimism, Stacks
+- **Multi-Chain**: SKALE, Base, Ethereum, Arbitrum, Optimism, Stacks
 
 ### Human-Controlled Session Keys
 
@@ -427,38 +427,49 @@ The dashboard is a polished Next.js 15 application with:
 
 ## Submission Checklist
 
-### Track 1: Best Agentic App
+### Track 1: Overall — Best Agentic App / Agent
 - [x] Real-world workflow: discover → decide → pay/settle → outcome
 - [x] Agents/protocols used meaningfully
-- [x] Guardrails: spend caps, allowlists, confirmation steps
-- [x] Receipts/logs: clear evidence of what agent did and why
-- [x] Repo + README + quickstart
-- [x] Human-in-the-loop: wallet ownership + budget control + session revocation
+- [x] Reliability: deterministic flow, good error handling, sensible defaults
+- [x] Trust + safety: guardrails (spend caps, allowlists, confirmation steps, policy limits)
+- [x] Receipts/logs: clear evidence of what agent did and why (audit trail)
+- [x] Repo + README + quickstart instructions
+- [ ] 2–3 minute demo video posted on Twitter (see DEMO_SCRIPT.md)
+- [x] Evidence: screenshots/logs of x402/AP2 flows + final outcome
 
 ### Track 2: Agentic Tool Usage on x402
-- [x] x402 in real flow: HTTP 402 → pay → retry (5 tool calls)
-- [x] Tool chaining: 4+ paid steps in one workflow
-- [x] Cost reasoning: LLM plans based on price/value
-- [x] Receipts/logs, spend tracking, step-by-step trace
+- [x] Uses x402 in real flow: HTTP 402 → pay → retry (5+ tool calls)
+- [x] Tool chaining: 5 paid steps in one workflow
+- [x] Cost reasoning: LLM plans based on price/value tradeoffs
+- [x] Well-instrumented: receipts/logs, spend tracking, step-by-step trace
 - [x] Logged spend summary per tool call
+- [ ] Demo video showing 402 challenge + payment + retry
+- [x] Wallet integration proof (Veridex AgentWallet with session key signing)
 
 ### Track 3: Best Integration of AP2
 - [x] Clean intent → authorization → settlement flow
 - [x] Auditable receipt (structured JSON)
-- [x] Clear write-up of where authorization happens
-- [x] Demo shows full AP2 flow and failure modes
+- [x] Clear write-up of where authorization happens and how it's enforced
+- [ ] Demo video showing full AP2 flow and a failure mode
+- [x] Receipt output (structured JSON) demonstrating audit trail
 
-### Track 4: Best Trading/DeFi Agent
-- [x] Executes DeFi action (swap via DEX)
-- [x] Risk controls: spend cap, slippage bounds, allowlist, cooldown, time-bound sessions
+### Track 4: Best Trading / DeFi Agent
+- [x] Executes at least one DeFi action (swap via DEX route)
+- [x] Risk controls: spend cap, slippage bounds, allowlist/denylist, cooldown, time-bound sessions
 - [x] Explains why it acted (LLM reasoning + reason codes)
 - [x] Auditable trail (tx hashes + reason codes)
-- [x] Multi-source research informing trading decisions
+- [x] Multi-source research informing trading decisions (5 data sources)
 - [x] Human-controlled budget with revocable session keys
+- [ ] Demo video
+- [x] Technical documentation (this README)
 
 ### Track 5: Encrypted Agents (BITE v2)
-- [ ] BITE v2 integration (SKALE-specific — stretch goal)
-- [ ] Encrypted trading strategy until execution
+- [x] Architecture designed for BITE v2 conditional transactions
+- [x] Clear "why private + conditional" workflow (prevents front-running of agent trading strategy)
+- [ ] BITE v2 SDK integration (SKALE Nebula deployment)
+- [ ] Demo video showing conditional encrypted flow
+
+> **Track 5 Design:** ARIA's Phase 6 (Trade Execution) encrypts the trading strategy using BITE v2 before submission to SKALE Nebula. The trade intent (buy/sell decision, amount, route) stays encrypted until the risk engine conditions are satisfied (spend cap OK, slippage within bounds, AP2 mandate valid). If conditions fail, the encrypted intent expires without revealing the strategy — preventing MEV front-running. See `SUBMISSION.md` for full details. (simulated in demo)
 
 ---
 
@@ -466,19 +477,39 @@ The dashboard is a polished Next.js 15 application with:
 
 - **[Veridex Agent SDK](../../packages/agent-sdk)** (`@veridex/agentic-payments`) — Universal agentic payments (x402, UCP, ACP, AP2)
 - **[Veridex Core SDK](../../packages/sdk)** (`@veridex/sdk`) — Passkey management, session key crypto
-- **Express** — Merchant server
-- **Next.js 15** — Dashboard
+- **Express** — Merchant server with `veridexPaywall` middleware
+- **Next.js 15** — Dashboard with real-time WebSocket updates
 - **Tailwind CSS v4** — Styling with `@theme` design tokens
 - **Radix UI** — Accessible component primitives
+- **Framer Motion** — Animations
 - **Lucide** — Icons
-- **Google Gemini 2.5 Pro** — LLM reasoning (optional — works without API key)
+- **Google Gemini 2.5 Pro** — LLM reasoning (optional — works without API key via data-aware fallback)
 - **TypeScript** — End-to-end type safety
+- **Real data sources** — CoinGecko, CryptoCompare, DeFi Llama, DuckDuckGo, Wikipedia, on-chain RPCs
+
+### Hackathon Partner Technologies
+
+- **SKALE** — Target chain for BITE v2 encrypted conditional transactions (Track 5)
+- **Google AP2** — Authorization protocol for agent mandate lifecycle (Track 3)
+- **Coinbase x402** — HTTP payment protocol for paid tool calls (Track 2)
+- **ERC-8004** — Agent identity and reputation standard (integrated in Veridex SDK)
+
+---
+
+## Submission
+
+See **[SUBMISSION.md](./SUBMISSION.md)** for the full submission guide with per-track requirements.
+
+See **[DEMO_SCRIPT.md](./DEMO_SCRIPT.md)** for the demo video recording script.
 
 ---
 
 ## Team
 
-Built by the Veridex Protocol team for the SF Agentic Commerce x402 Hackathon 2026.
+Built by the **Veridex Protocol** team for the SF Agentic Commerce x402 Hackathon 2026.
+
+- **GitHub:** [Veridex-Protocol](https://github.com/Veridex-Protocol)
+- **Twitter:** [@VeridexProtocol](https://twitter.com/VeridexProtocol)
 
 ## License
 

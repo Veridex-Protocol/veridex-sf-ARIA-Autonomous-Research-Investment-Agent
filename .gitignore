@@ -5,3 +5,5 @@ dist/
 .DS_Store
 dashboard/.next/
 dashboard/node_modules/
+SUBMISSION.md
+DEMO_SCRIPT.md

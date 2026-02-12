@@ -1,31 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Zap, Globe, Key, Activity, Star } from "lucide-react";
-import { cn } from "@/lib/utils"; // Assuming lib/utils exists, or I'll inline it.
+import { Shield, Zap, Globe, Key, Activity, Star, Lock } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const FEATURES = [
     {
-        title: "ERC-8004 Identity",
-        description: "Every agent mints a verifiable, portable NFT identity on Monad.",
-        icon: Shield,
+        title: "BITE Encryption",
+        description: "Conditional transactions that decrypt only when terms are met.",
+        icon: Lock,
         className: "md:col-span-2",
     },
     {
-        title: "Instant Settlement",
-        description: "Native HTTP 402 payments via streaming.",
+        title: "Zero Gas & Instant",
+        description: "High-frequency agent execution on SKALE.",
         icon: Zap,
         className: "md:col-span-1",
     },
     {
-        title: "Global Discovery",
-        description: "Find agents by capability, price, or reputation.",
+        title: "AP2 Mandates",
+        description: "Clean intent → authorization → settlement flows.",
         icon: Globe,
         className: "md:col-span-1",
     },
     {
-        title: "Permissionless Access",
-        description: "No API keys. Just crypto capability.",
+        title: "x402 Streaming",
+        description: "Native HTTP 402 payment required handling.",
         icon: Key,
         className: "md:col-span-2",
     },
@@ -43,7 +43,7 @@ export function BentoGridFeatures() {
                         </span>
                     </h2>
                     <p className="text-lg text-muted-foreground">
-                        A complete suite of on-chain tools designed for autonomous economic actors.
+                        A complete suite of tools for autonomous commerce on the SKALE Network.
                     </p>
                 </div>
 

@@ -1,6 +1,7 @@
 import { AnimatedHero } from "@/components/landing/AnimatedHero";
 import { AgentPaymentDemo } from "@/components/landing/AgentPaymentDemo";
 import { BentoGridFeatures } from "@/components/landing/BentoGridFeatures";
+import { LiveActivityFeed } from "@/components/landing/LiveActivityFeed";
 import Link from "next/link";
 import { ArrowRight, Github, Twitter } from "lucide-react";
 
@@ -20,17 +21,17 @@ export default function Home() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <Link href="#features" className="hover:text-white transition-colors">Features</Link>
-            <Link href="#developers" className="hover:text-white transition-colors">Developers</Link>
-            <Link href="#about" className="hover:text-white transition-colors">About</Link>
+            <Link href="#demo" className="hover:text-white transition-colors">Demo</Link>
+            <Link href="https://veridex.network" target="_blank" className="hover:text-white transition-colors">About</Link>
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link href="https://github.com/veridex/x402" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
+            <Link href="https://github.com/Veridex-Protocol" target="_blank" className="text-muted-foreground hover:text-white transition-colors">
               <Github className="w-5 h-5" />
             </Link>
-            <button className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-full transition-colors hidden sm:block">
+            <Link href="/setup" className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-full transition-colors hidden sm:block no-underline">
               Launch App
-            </button>
+            </Link>
           </div>
         </div>
       </header>
@@ -41,14 +42,14 @@ export default function Home() {
         <AnimatedHero />
 
         {/* Demo Section */}
-        <section className="py-24 relative">
+        <section id="demo" className="py-24 relative">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-16">
 
               {/* Text Content */}
               <div className="flex-1 space-y-8">
                 <div className="inline-block px-3 py-1 rounded-full bg-[#bf00ff]/10 border border-[#bf00ff]/20 text-[#bf00ff] text-xs font-mono uppercase tracking-wider">
-                  Live on Monad Testnet
+                  Live on SKALE Nebula
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                   Agents don't use credit cards. <br />
@@ -58,14 +59,14 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   The x402 protocol enables autonomous agents to negotiate, settle, and verify transactions without human intervention.
-                  Built for high-frequency, low-latency machine commerce.
+                  Built for high-frequency, low-latency machine commerce on SKALE.
                 </p>
 
                 <ul className="space-y-4">
                   {[
-                    "Instant finality via Monad execution",
+                    "Instant finality via SKALE BITE execution",
                     "Programmatic 402 Payment Required handling",
-                    "Verifiable on-chain reputation history"
+                    "Privacy-preserving conditional transactions"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-muted-foreground">
                       <div className="w-6 h-6 rounded-full bg-[#00f0ff]/10 flex items-center justify-center">
@@ -78,10 +79,11 @@ export default function Home() {
               </div>
 
               {/* Interactive Demo */}
-              <div className="flex-1 w-full max-w-lg relative group">
+              <div className="flex-1 w-full max-w-lg relative group space-y-6">
                 {/* Glow Effect behind demo */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#00f0ff] to-[#bf00ff] opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500" />
                 <AgentPaymentDemo />
+                <LiveActivityFeed />
               </div>
 
             </div>
@@ -89,7 +91,9 @@ export default function Home() {
         </section>
 
         {/* Features Grid */}
-        <BentoGridFeatures />
+        <div id="features">
+          <BentoGridFeatures />
+        </div>
 
         {/* Closing CTA */}
         <section className="py-32 relative text-center overflow-hidden">
@@ -102,12 +106,12 @@ export default function Home() {
               Join the network of autonomous economic agents.
             </p>
             <div className="flex justify-center gap-6">
-              <button className="px-8 py-4 bg-[#00f0ff] text-black font-bold rounded-full hover:shadow-[0_0_40px_rgba(0,240,255,0.4)] transition-shadow">
+              <Link href="/setup" className="px-8 py-4 bg-[#00f0ff] text-black font-bold rounded-full hover:shadow-[0_0_40px_rgba(0,240,255,0.4)] transition-shadow no-underline">
                 Start Building
-              </button>
-              <button className="px-8 py-4 glass text-white font-medium rounded-full hover:bg-white/10 transition-colors">
+              </Link>
+              <Link href="https://veridex.network" target="_blank" className="px-8 py-4 glass text-white font-medium rounded-full hover:bg-white/10 transition-colors no-underline">
                 Read Documentation
-              </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -121,9 +125,9 @@ export default function Home() {
             © 2026 Veridex Protocol. All rights reserved.
           </div>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-[#00f0ff]">Twitter</Link>
-            <Link href="#" className="hover:text-[#00f0ff]">Discord</Link>
-            <Link href="#" className="hover:text-[#00f0ff]">GitHub</Link>
+            <Link href="https://twitter.com/VeridexProtocol" target="_blank" className="hover:text-[#00f0ff]">Twitter</Link>
+            <Link href="https://veridex.network" target="_blank" className="hover:text-[#00f0ff]">Website</Link>
+            <Link href="https://github.com/Veridex-Protocol" target="_blank" className="hover:text-[#00f0ff]">GitHub</Link>
           </div>
         </div>
       </footer>

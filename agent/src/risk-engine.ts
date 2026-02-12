@@ -17,7 +17,7 @@ const DEFAULT_POLICY: RiskPolicy = {
   perTransactionLimitUSD: parseFloat(process.env.AGENT_PER_TX_LIMIT_USD || '5'),
   maxAutoApproveUSD: parseFloat(process.env.AGENT_MAX_AUTO_APPROVE_USD || '1'),
   allowedTokens: ['USDC', 'ETH', 'WETH', 'AERO', 'cbETH'],
-  allowedChains: ['base', 'base-sepolia', 'ethereum', 'arbitrum'],
+  allowedChains: ['base', 'base-sepolia', 'ethereum', 'arbitrum', 'skale-nebula'],
   maxSlippageBps: 100,
   requireApprovalAboveUSD: 5,
   allowedCategories: ['market-data', 'sentiment', 'routing', 'execution', 'analytics'],

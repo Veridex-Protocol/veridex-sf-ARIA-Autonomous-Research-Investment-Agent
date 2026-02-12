@@ -72,6 +72,11 @@ const TOKEN_ADDRESSES: Record<string, Record<string, string>> = {
     USDC: '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85',
     OP: '0x4200000000000000000000000000000000000042',
   },
+  'skale-nebula': {
+    ETH: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+    USDC: '0xCC205196288B7A26f6D43bBD68AaA98dde97b75F',
+    SKL: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+  },
 };
 
 const CHAIN_IDS: Record<string, number> = {
@@ -79,6 +84,7 @@ const CHAIN_IDS: Record<string, number> = {
   ethereum: 1,
   arbitrum: 42161,
   optimism: 10,
+  'skale-nebula': 1482601649,
 };
 
 function resolveTokenAddress(symbol: string, chain: string): string {
@@ -202,6 +208,8 @@ async function estimateRouteFromPrices(
       ? ['Uniswap V3', 'Aerodrome', 'BaseSwap']
       : chain === 'arbitrum'
       ? ['Uniswap V3', 'Camelot', 'SushiSwap']
+      : chain === 'skale-nebula'
+      ? ['Ruby.Exchange', 'SKALE DEX', 'SushiSwap']
       : ['Uniswap V3', 'SushiSwap', 'Curve'];
 
     return dexes.map((dex, i) => {

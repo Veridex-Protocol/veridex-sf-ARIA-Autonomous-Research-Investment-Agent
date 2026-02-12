@@ -46,6 +46,7 @@ const RPC_URLS: Record<string, string> = {
   ethereum: 'https://eth.llamarpc.com',
   arbitrum: 'https://arb1.arbitrum.io/rpc',
   optimism: 'https://mainnet.optimism.io',
+  'skale-nebula': process.env.SKALE_RPC_URL || 'https://mainnet.skalenodes.com/v1/green-giddy-denebola',
 };
 
 const ERC20_TOKENS: Record<string, Array<{ symbol: string; address: string; decimals: number; geckoId: string }>> = {

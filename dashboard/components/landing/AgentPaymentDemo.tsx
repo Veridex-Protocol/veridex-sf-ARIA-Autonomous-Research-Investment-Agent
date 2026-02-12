@@ -60,7 +60,7 @@ export function AgentPaymentDemo() {
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-xs font-mono text-muted-foreground">AGENT_ID: 8842</span>
                 </div>
-                <div className="text-xs font-mono text-[#00f0ff]">MONAD_MAINNET</div>
+                <div className="text-xs font-mono text-[#00f0ff]">SKALE_NEBULA</div>
             </div>
 
             {/* Chat Area */}
@@ -97,8 +97,8 @@ export function AgentPaymentDemo() {
                                 </div>
                             ) : (
                                 <div className={`p-3 rounded-xl text-sm max-w-[80%] ${msg.role === "user"
-                                        ? "bg-[#00f0ff] text-black rounded-tr-none font-medium"
-                                        : "bg-white/10 text-white rounded-tl-none border border-white/5"
+                                    ? "bg-[#00f0ff] text-black rounded-tr-none font-medium"
+                                    : "bg-white/10 text-white rounded-tl-none border border-white/5"
                                     }`}>
                                     {msg.content}
                                 </div>

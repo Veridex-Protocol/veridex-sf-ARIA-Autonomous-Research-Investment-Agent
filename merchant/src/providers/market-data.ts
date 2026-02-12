@@ -76,6 +76,7 @@ const COINGECKO_IDS: Record<string, string> = {
   BASE: 'base-protocol',
   MON: 'monad',
   STX: 'blockstack',
+  SKL: 'skale',
 };
 
 function resolveGeckoId(symbol: string): string {
